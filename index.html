@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock paper scissors</title>
+</head>
+<body>
+
+  <script>
+
+    var playerSelection; //= prompt("Alegerea ta: ").toLowerCase();
+    var computerSelection;// = computerPlay();
+    
+   
+    function computerPlay(){
+      var words = ["rock", "paper", "scissors"];
+      var number = Math.floor(Math.random() * words.length);
+      var word = words[number];
+      return word; 
+    }   
+
+    function playRound(playerSelection, computerSelection){
+
+      var message;
+
+      if ((playerSelection == "rock" & computerSelection == "rock") || (playerSelection == "paper" & computerSelection == "paper") || (playerSelection == "scissors" & computerSelection == "scissors") ){
+        message = "Draw!";
+      }
+      else if (playerSelection == "rock" & computerSelection == "paper"){
+        message = "You lose! Paper beats rock";
+      }
+      else if (playerSelection == "rock" & computerSelection == "scissors"){
+        message = "You win! Rock beats scissors";
+      }
+      else if (playerSelection == "scissors" & computerSelection == "paper"){
+        message = "You win! Scissors beats paper";
+      }
+      else if (playerSelection == "scissors" & computerSelection == "rock"){
+        message = "You lose! Rock beats scissors";
+      }
+      else if (playerSelection == "paper" & computerSelection == "rock"){
+        message = "You win! Paper beats rock";
+      }
+      else if (playerSelection == "paper" & computerSelection == "scissors") {
+        message = "You lose! Scissors beats paper";
+      }      
+
+      return message;
+    }
+
+    function game(){
+
+      for(let i = 1; i <= 5; i++ ){
+        
+          playerSelection = prompt("Alegerea ta: ").toLowerCase();
+          computerSelection = computerPlay(); 
+          alert(playRound(playerSelection, computerSelection));  
+      }
+    }
+
+    game();
+
+  
+    
+  </script>
+</body>
+</html>
