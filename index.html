@@ -10,7 +10,8 @@
 
     var playerSelection; //= prompt("Alegerea ta: ").toLowerCase();
     var computerSelection;// = computerPlay();
-    
+    var playerScore = 0;
+    var computerScore = 0;
    
     function computerPlay(){
       var words = ["rock", "paper", "scissors"];
@@ -25,27 +26,38 @@
 
       if ((playerSelection == "rock" & computerSelection == "rock") || (playerSelection == "paper" & computerSelection == "paper") || (playerSelection == "scissors" & computerSelection == "scissors") ){
         message = "Draw!";
+        console.log(playerScore++);
+        console.log(computerScore++);
       }
       else if (playerSelection == "rock" & computerSelection == "paper"){
         message = "You lose! Paper beats rock";
+        console.log(computerScore++);
+
       }
       else if (playerSelection == "rock" & computerSelection == "scissors"){
         message = "You win! Rock beats scissors";
+        console.log(playerScore++);
       }
       else if (playerSelection == "scissors" & computerSelection == "paper"){
         message = "You win! Scissors beats paper";
+        console.log(playerScore++);
       }
       else if (playerSelection == "scissors" & computerSelection == "rock"){
         message = "You lose! Rock beats scissors";
+        console.log(computerScore++);
       }
       else if (playerSelection == "paper" & computerSelection == "rock"){
         message = "You win! Paper beats rock";
+        console.log(playerScore++);
       }
       else if (playerSelection == "paper" & computerSelection == "scissors") {
         message = "You lose! Scissors beats paper";
+        console.log(computerScore++);
       }      
 
       return message;
+      return computerScore;
+      return playerScore;
     }
 
     function game(){
@@ -55,7 +67,16 @@
           playerSelection = prompt("Alegerea ta: ").toLowerCase();
           computerSelection = computerPlay(); 
           alert(playRound(playerSelection, computerSelection));  
+          
       }
+
+      if(playerScore > computerScore){
+            document.write("You win!");
+          }
+      else if (playerScore < computerScore){
+            document.write("Computer wins!");
+      }
+      else {document.write("Draw!");}
     }
 
     game();
